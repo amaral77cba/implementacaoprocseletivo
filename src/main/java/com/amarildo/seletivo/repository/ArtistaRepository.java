@@ -1,0 +1,15 @@
+package com.amarildo.seletivo.repository;
+
+import com.amarildo.seletivo.enumerador.TipoArtista;
+import com.amarildo.seletivo.model.Artista;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ArtistaRepository extends JpaRepository<Artista, Long> {
+    List<Artista> findByTipoArtista(TipoArtista tipoArtista);
+
+    boolean existsByNomeArtistaIgnoreCase(String nomeArtista);
+
+    boolean existsByNomeArtistaIgnoreCaseAndIdenArtistaNot(String nomeArtista, Long idenArtista);
+}
